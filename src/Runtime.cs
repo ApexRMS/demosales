@@ -21,10 +21,10 @@ namespace SampleSales
         {
             base.Initialize();
 
-            this.m_Regions = this.Project.GetDataSheet("Sales_Region").GetData();
-            this.m_Items = this.Project.GetDataSheet("Sales_Item").GetData();
-            this.m_Input = this.ResultScenario.GetDataSheet("Sales_InputSales").GetData();
-            this.m_Output = this.ResultScenario.GetDataSheet("Sales_OutputSales").GetData();
+            this.m_Regions = this.Project.GetDataSheet("sample_sales__Region").GetData();
+            this.m_Items = this.Project.GetDataSheet("sample_sales__Item").GetData();
+            this.m_Input = this.ResultScenario.GetDataSheet("sample_sales__InputSales").GetData();
+            this.m_Output = this.ResultScenario.GetDataSheet("sample_sales__OutputSales").GetData();
 
             this.m_Input.PrimaryKey = new DataColumn[] {
                 this.m_Input.Columns["RegionID"],
