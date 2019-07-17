@@ -7,28 +7,28 @@ using System.Data;
 using SyncroSim.Core;
 using SyncroSim.StochasticTime;
 
-namespace SampleSales
+namespace DemoSales
 {
-    class Runtime : StochasticTimeTransformer
+    class Primary : StochasticTimeTransformer
     {
-        private DataTable m_Regions;
-        private DataTable m_Items;
-        private DataTable m_Input;
-        private DataTable m_Output;
+        private DataTable m_RegionTable;
+        private DataTable m_ItemTable;
+        private DataTable m_AnnualSalesTable;
+        private DataTable m_OutputSalesTable;
         private RandomGenerator m_RG = new RandomGenerator();
 
         public override void Initialize()
         {
             base.Initialize();
 
-            this.m_Regions = this.Project.GetDataSheet("sample_sales__Region").GetData();
-            this.m_Items = this.Project.GetDataSheet("sample_sales__Item").GetData();
-            this.m_Input = this.ResultScenario.GetDataSheet("sample_sales__InputSales").GetData();
-            this.m_Output = this.ResultScenario.GetDataSheet("sample_sales__OutputSales").GetData();
+            this.m_RegionTable = this.Project.GetDataSheet("demosales_Region").GetData();
+            this.m_ItemTable = this.Project.GetDataSheet("demosales_Item").GetData();
+            this.m_AnnualSalesTable = this.ResultScenario.GetDataSheet("demosales_AnnualSales").GetData();
+            this.m_OutputSalesTable = this.ResultScenario.GetDataSheet("demosales_OutputSales").GetData();
 
-            this.m_Input.PrimaryKey = new DataColumn[] {
-                this.m_Input.Columns["RegionID"],
-                this.m_Input.Columns["ItemID"]
+            this.m_AnnualSalesTable.PrimaryKey = new DataColumn[] {
+                this.m_AnnualSalesTable.Columns["RegionID"],
+                this.m_AnnualSalesTable.Columns["ItemID"]
             };
         }
 
@@ -36,9 +36,9 @@ namespace SampleSales
         {
             base.OnIteration(iteration);
 
-            foreach (DataRow RegionRow in this.m_Regions.Rows)
+            foreach (DataRow RegionRow in this.m_RegionTable.Rows)
             {
-                foreach (DataRow ItemRow in this.m_Items.Rows)
+                foreach (DataRow ItemRow in this.m_ItemTable.Rows)
                 {
                     this.CreateSalesForecast(
                         Convert.ToInt32(RegionRow["RegionID"]),
@@ -50,7 +50,7 @@ namespace SampleSales
 
         private void CreateSalesForecast(int regionId, int itemId, int iteration)
         {
-            DataRow InputRow = this.m_Input.Rows.Find(new object[] { regionId, itemId });
+            DataRow InputRow = this.m_AnnualSalesTable.Rows.Find(new object[] { regionId, itemId });
 
             if (InputRow != null)
             {
@@ -68,7 +68,7 @@ namespace SampleSales
                 {
                     int ItemsSold = Convert.ToInt32(this.m_RG.GetUniformDouble(MinItemsSold, MaxItemsSold));
 
-                    this.m_Output.Rows.Add(new object[] {
+                    this.m_OutputSalesTable.Rows.Add(new object[] {
                         iteration,
                         Timestep, 
                         regionId, 

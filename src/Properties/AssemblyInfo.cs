@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SampleSales")]
-[assembly: AssemblyDescription("Sample SyncroSim Package")]
+[assembly: AssemblyTitle("DemoSales")]
+[assembly: AssemblyDescription("Demo Sales SyncroSim Base Package")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ApexRMS")]
-[assembly: AssemblyProduct("SampleSales")]
+[assembly: AssemblyProduct("DemoSales")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

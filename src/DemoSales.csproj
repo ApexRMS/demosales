@@ -7,8 +7,8 @@
     <ProjectGuid>{92042C48-122B-40B9-9A06-DEB51B09C75D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleSales</RootNamespace>
-    <AssemblyName>SampleSales</AssemblyName>
+    <RootNamespace>DemoSales</RootNamespace>
+    <AssemblyName>DemoSales</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -90,7 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Runtime.cs" />
+    <Compile Include="Primary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
