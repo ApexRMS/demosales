@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<package name="demosales" displayName="Demo Sales SyncroSim Base Package" version="1.0.0" url="https://github.com/ApexRMS/demosales">
+  <transformers>
+    <transformer name="Primary" displayName="Demo Sales" className="DemoSales.Primary" classAssembly="DemoSales" configurationSheet="RunControl" isPrimary="True">
+      <include>
+        <transformer name="corestime_Runtime"/>
+      </include>
+      <datafeeds>
+        <datafeed name="Region" displayName="Regions" dataScope="Project">
+          <datasheets>
+            <datasheet name="Region" displayName="Regions" valueMember="RegionID" displayMember="Name">
+              <columns>
+                <column name="RegionID" dataType="Integer" isPrimary="True"/>
+                <column name="ProjectID" dataType="Integer"/>
+                <column name="Name" dataType="String"/>
+                <column name="Description" dataType="String"/>
+              </columns>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+        <datafeed name="Item" displayName="Items" dataScope="Project">
+          <datasheets>
+            <datasheet name="Item" displayName="Items" valueMember="ItemID" displayMember="Name">
+              <columns>
+                <column name="ItemID" dataType="Integer" isPrimary="True"/>
+                <column name="ProjectID" dataType="Integer"/>
+                <column name="Name" dataType="String"/>
+                <column name="Description" dataType="String"/>
+              </columns>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+        <datafeed name="RunControl" displayName="Forecast Settings" dataScope="Scenario">
+          <datasheets>
+            <datasheet name="RunControl" displayName="Run Control" isSingleRow="True">
+              <columns>
+                <column name="RunControlID" dataType="Integer" isPrimary="True"/>
+                <column name="ScenarioID" dataType="Integer"/>
+                <column name="MinimumTimestep" displayName="Start Year" dataType="Integer" defaultValue="0" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d"/>
+                <column name="MaximumTimestep" displayName="End Year" dataType="Integer" defaultValue="0" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d"/>
+                <column name="MinimumIteration" displayName="Minimum Iteration" dataType="Integer" defaultValue="1" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="1" format="d" isVisible="False"/>
+                <column name="MaximumIteration" displayName="Number of Iterations" dataType="Integer" defaultValue="1" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="1" format="d"/>
+              </columns>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+        <datafeed name="AnnualSales" displayName="Annual Sales" dataScope="Scenario">
+          <datasheets>
+            <datasheet name="AnnualSales" displayName="Annual Sales">
+              <columns>
+                <column name="AnnualSalesID" dataType="Integer" isPrimary="True"/>
+                <column name="ScenarioID" dataType="Integer"/>
+                <column name="RegionID" displayName="Region" dataType="Integer" validationType="Datasheet" formula1="Region" allowDbNull="False"/>
+                <column name="ItemID" displayName="Item" dataType="Integer" validationType="Datasheet" formula1="Item" allowDbNull="False"/>
+                <column name="ItemPrice" displayName="Price" dataType="Double" validationType="Decimal" validationCondition="GreaterEqual" formula1="0" allowDbNull="False" format="C2"/>
+                <column name="CurMinUnitsSold" displayName="Current Min Units Sold" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d" allowDbNull="False"/>
+                <column name="CurMaxUnitsSold" displayName="Current Max Units Sold" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d" allowDbNull="False"/>
+                <column name="PercentIncrease" displayName="% Annual Sales Increase" dataType="Double" validationType="Decimal" validationCondition="Between" formula1="-100" formula2="100" isOptional="True" format="N2"/>
+              </columns>
+              <validations>
+                <validation validationType="Unique" columns="RegionID|ItemID"/>
+                <validation validationType="LessEqual" columns="CurMinUnitsSold|CurMaxUnitsSold"/>
+              </validations>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+        <datafeed name="OutputSales" displayName="Output Sales" dataScope="Scenario" isOutput="True">
+          <datasheets>
+            <datasheet name="OutputSales" displayName="Output Sales">
+              <columns>
+                <column name="ScenarioID" dataType="Integer" isCompositeIndex="True"/>
+                <column name="Iteration" dataType="Integer" isCompositeIndex="True" format="d"/>
+                <column name="Timestep" displayName="Year" dataType="Integer" isCompositeIndex="True" format="d"/>
+                <column name="RegionID" displayName="Region" dataType="Integer" validationType="Datasheet" formula1="Region" allowDbNull="False"/>
+                <column name="ItemID" displayName="Item" dataType="Integer" validationType="Datasheet" formula1="Item" allowDbNull="False"/>
+                <column name="UnitsSold" displayName="Units Sold" dataType="Integer"/>
+                <column name="GrossRevenue" displayName="Gross Revenue" dataType="Double" format="N2"/>
+              </columns>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+      </datafeeds>
+    </transformer>
+  </transformers>
+  <layouts>
+    <layout name="coreforms_LibraryDatafeeds">
+      <item name="core_SysFolder"/>
+      <item name="core_Backup"/>
+      <item name="core_Multiprocessing"/>
+      <group name="Options">
+        <item name="core_Options" displayName="General"/>
+        <item name="core_Rconfig"/>
+      </group>
+    </layout>
+    <layout name="coreforms_ProjectDatafeeds">
+      <item name="Region"/>
+      <item name="Item"/>
+    </layout>
+    <layout name="coreforms_ScenarioDatafeeds">
+      <item name="RunControl"/>
+      <item name="AnnualSales"/>
+    </layout>
+    <layout name="coreforms_ResultTransformers">
+      <item name="corestime_ChartTransformer"/>
+    </layout>
+    <layout name="corestimeforms_Charts" configurationSheet="RunControl">
+      <item name="UnitsSold" displayName="Units Sold" dataSheet="OutputSales" column="UnitsSold" filter="RegionID|ItemID"/>
+      <item name="GrossRevenue" displayName="Gross Revenue" dataSheet="OutputSales" column="GrossRevenue" filter="RegionID|ItemID"/>
+    </layout>
+  </layouts>
+</package>
