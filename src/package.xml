@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<package name="demosales" displayName="Demo Sales SyncroSim Base Package" version="1.0.2" url="https://github.com/ApexRMS/demosales">
+<package name="demosales" displayName="Demo Sales SyncroSim Base Package" version="1.0.3" url="https://github.com/ApexRMS/demosales">
   <transformers>
     <transformer name="Primary" displayName="Demo Sales" className="DemoSales.Primary" classAssembly="DemoSales" configurationSheet="RunControl" isPrimary="True">
       <include>
