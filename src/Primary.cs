@@ -1,5 +1,5 @@
 ﻿// SyncroSim Modeling Framework
-// Copyright © 2007-2019 Apex Resource Management Solutions Ltd. (ApexRMS). All rights reserved.
+// Copyright © 2007-2021 Apex Resource Management Solutions Ltd. (ApexRMS). All rights reserved.
 // The TERMS OF USE and END USER LICENSE AGREEMENT for this software can be found in the LICENSE file.
 
 using System;
