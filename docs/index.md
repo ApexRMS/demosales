@@ -7,7 +7,7 @@ permalink: /
 
 # **demosales** SyncroSim Package
 <img align="right" style="padding: 13px" width="180" src="assets/images/logo/test-sticker.png">
-[![GitHub release](https://img.shields.io/github/v/release/ApexRMS/Package_Name.svg?style=for-the-badge&color=d68a06)](https://GitHub.com/ApexRMS/Package_Name/releases/)    <a href="https://github.com/ApexRMS/Package_Name"><img align="middle" style="padding: 1px" width="30" src="assets/images/logo/github-trans2.png">
+[![GitHub release](https://img.shields.io/github/v/release/ApexRMS/demosales.svg?style=for-the-badge&color=d68a06)](https://GitHub.com/ApexRMS/demosales/releases/)    <a href="https://github.com/ApexRMS/demosales"><img align="middle" style="padding: 1px" width="30" src="assets/images/logo/github-trans2.png">
 <br>
 ## An example of a very simple sales forecasting model developed in the MS .Net framework languages.
 ### A simple demonstration model for generating sales forecasts of hybrid and electric vehicles. The demosales package is an open-source SyncroSim Base Package.
@@ -15,15 +15,18 @@ permalink: /
 
 The demosales package can be loaded into SyncroSim as either an empty library or as the **Demo Sales - Basic** library, containing pre-defined datafeeds. The user sets the timespan of the model as well as the number of iterations.
 
-< img align="right" style="padding: 15px" width="400" src="assets/images/forecast_settings.png" >
+<img align="right" style="padding: 15px" width="400" src="assets/images/forecast_settings.png">
 
 The user also fills in information about current car sales, specifying *Region*, *Item*, *Price*, *Current Min Units Sold*, *Current Max Units Sold*, and *% Annual Sales Increase*.
 
-< img align="right" style="padding: 15px" width="400" src="assets/images/annual_sales.png" >
+<img align="right" style="padding: 15px" width="400" src="assets/images/annual_sales.png">
 
 The user can then run the scenarios to create a sales forecast of hybrid and electric vehicles.
 
- < img align="right" style="padding: 15px" width="400" src="assets/images/forecast_graphs.png" >
+ <img align="right" style="padding: 15px" width="400" src="assets/images/forecast_graphs.png">
+
+<br>
+<br>
 
 ## Requirements
 
@@ -53,9 +56,8 @@ Report a bug at
 <br>
 ## Developers
 
-Leonardo Frid (Author, maintainer)
-<br>
-Developer_Name (Author) <a href="https://orcid.org/0000-0002-5489-2337"><img align="middle" style="padding: 0.5px" width="17" src="assets/images/ORCID.png"></a>
+Leonardo Frid (Author, maintainer) <a href="https://orcid.org/0000-0002-5489-2337"><img align="middle" style="padding: 0.5px" width="17" src="assets/images/ORCID.png"></a>
 <br>
 Alex Embrey (Author)
+<br>
 Colin Daniel (Author)
