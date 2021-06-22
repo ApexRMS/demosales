@@ -15,13 +15,23 @@ permalink: /
 
 The demosales package can be loaded into SyncroSim as either an empty library or as the **Demo Sales - Basic** library, containing pre-defined datafeeds. The user sets the timespan of the model as well as the number of iterations.
 
+<br>
+
 <img align="right" style="padding: 15px" width="400" src="assets/images/forecast_settings.PNG">
+
+<br>
 
 The user also fills in information about current car sales, specifying *Region*, *Item*, *Price*, *Current Min Units Sold*, *Current Max Units Sold*, and *% Annual Sales Increase*.
 
+<br>
+
 <img align="right" style="padding: 15px" width="400" src="assets/images/annual_sales.PNG">
 
+<br>
+
 The user can then run the scenarios to create a sales forecast of hybrid and electric vehicles.
+
+<br>
 
  <img align="right" style="padding: 15px" width="400" src="assets/images/forecast_graphs.PNG">
 
