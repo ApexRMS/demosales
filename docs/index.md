@@ -6,18 +6,16 @@ permalink: /
 ---
 
 # **demosales** SyncroSim Package
-<img align="right" style="padding: 13px" width="180" src="assets/images/logo/test-sticker.png">
+<img align="right" style="padding: 13px" width="180" src="assets/images/logo/demosales-sticker.png">
 [![GitHub release](https://img.shields.io/github/v/release/ApexRMS/demosales.svg?style=for-the-badge&color=d68a06)](https://GitHub.com/ApexRMS/demosales/releases/)    <a href="https://github.com/ApexRMS/demosales"><img align="middle" style="padding: 1px" width="30" src="assets/images/logo/github-trans2.png">
 <br>
-## An example of a very simple sales forecasting model developed in the MS .Net framework languages.
+## Simple sales forecasting model
 ### A simple demonstration model for generating sales forecasts of hybrid and electric vehicles. The demosales package is an open-source SyncroSim Base Package.
 
 
 The demosales package can be loaded into SyncroSim as either an empty library or as the **Demo Sales - Basic** library, containing pre-defined datafeeds. The user had the option to modify the timespan of the model, the number of Monte Carlo realizations, and information about current car sales. The result of running the model scenario(s) is a sales forecast of hybrid and electric vehicles.
-
 <br>
 <br>
-
 ## Requirements
 
 This package requires SyncroSim [2.2.27](https://syncrosim.com/download/).
