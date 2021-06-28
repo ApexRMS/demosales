@@ -13,7 +13,7 @@ permalink: /
 ### A simple package for demonstrating SyncroSim functionality. The demosales package is an open-source SyncroSim Base Package.
 
 
-The demosales package can be loaded into SyncroSim as either an empty library or as the **Demo Sales - Basic** library, containing pre-defined datafeeds. This libary covers the basics of interacting with SyncroSim using a simple car sales forecasting model. .
+The demosales package can be loaded into SyncroSim as either an empty library or as the **Demo Sales - Basic** library, which contains pre-defined datafeeds. This library covers the basics of interacting with SyncroSim using a simple car sales forecasting model.
 <br>
 <br>
 ## Requirements
