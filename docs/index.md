@@ -18,7 +18,7 @@ The demosales package can be loaded into SyncroSim as either an empty library or
 <br>
 ## Requirements
 
-This package requires SyncroSim [2.2.27](https://syncrosim.com/download/).
+This package requires the [latest SyncroSim release](https://syncrosim.com/download/).
 <br>
 <br>
 ## How to Install
