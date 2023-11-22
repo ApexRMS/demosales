@@ -69,16 +69,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SyncroSim.Core">
-      <HintPath>..\..\..\..\..\..\gitprojects\ssimbin\SyncroSim.Core.dll</HintPath>
+      <HintPath>..\..\ssimbin3\SyncroSim.Core.dll</HintPath>
     </Reference>
     <Reference Include="SyncroSim.Core.Forms">
-      <HintPath>..\..\..\..\..\..\gitprojects\ssimbin\SyncroSim.Core.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="SyncroSim.StochasticTime">
-      <HintPath>..\..\..\..\..\..\gitprojects\ssimbin\SyncroSim.StochasticTime.dll</HintPath>
-    </Reference>
-    <Reference Include="SyncroSim.StochasticTime.Forms">
-      <HintPath>..\..\..\..\..\..\gitprojects\ssimbin\SyncroSim.StochasticTime.Forms.dll</HintPath>
+      <HintPath>..\..\ssimbin3\SyncroSim.Core.Forms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
