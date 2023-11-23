@@ -18,10 +18,8 @@
 		<column name="CurMinUnitsSold" displayName="Current Min Units Sold" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d" allowDbNull="False"/>
 		<column name="CurMaxUnitsSold" displayName="Current Max Units Sold" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d" allowDbNull="False"/>
 		<column name="PercentIncrease" displayName="% Annual Sales Increase" dataType="Double" validationType="Decimal" validationCondition="Between" formula1="-100" formula2="100" isOptional="True" format="N2"/>
-		<validations>
-			<validation validationType="Unique" columns="RegionId|ItemId"/>
-			<validation validationType="LessEqual" columns="CurMinUnitsSold|CurMaxUnitsSold"/>
-		</validations>
+		<validation validationType="Unique" columns="RegionId|ItemId"/>
+	  <validation validationType="LessEqual" columns="CurMinUnitsSold|CurMaxUnitsSold"/>
 	</dataSheet>
 
 	<dataSheet name="OutputSales" displayName="Output Sales" dataScope="Scenario" hasIteration="True" hasTimestep="True">
