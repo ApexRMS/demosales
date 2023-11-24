@@ -8,7 +8,7 @@ using SyncroSim.Core;
 
 namespace DemoSales
 {
-    class Primary : StochasticTimeTransformer
+    class Main : StochasticTimeTransformer
     {
         private DataTable m_RegionTable;
         private DataTable m_ItemTable;
@@ -29,26 +29,6 @@ namespace DemoSales
                 this.m_AnnualSalesTable.Columns["RegionId"],
                 this.m_AnnualSalesTable.Columns["ItemId"]
             };
-        }
-
-        public override void Transform()
-        {
-            try
-            {
-                int TotalIterations = (this.MaximumIteration - this.MinimumIteration + 1);
-                int TotalTimesteps = (this.MaximumTimestep - this.MinimumTimestep + 1);
-                int TotalDefs = (this.m_ItemTable.Rows.Count + this.m_RegionTable.Rows.Count);
-                int TotalTasks = (TotalIterations * TotalTimesteps * TotalDefs);
-
-                this.BeginProgress(TotalTasks);
-
-                base.Transform();
-            }
-            finally
-            {
-                this.SetStatusMessage(null);
-                this.CompleteProgress();
-            }
         }
 
         protected override void OnIteration(int iteration)
@@ -99,8 +79,6 @@ namespace DemoSales
 
                     MinItemsSold = Convert.ToInt32(MinItemsSold * (1 + (PercentIncrease / 100)));
                     MaxItemsSold = Convert.ToInt32(MaxItemsSold * (1 + (PercentIncrease / 100)));
-
-                    this.StepProgress();
                 }                
             }
         }

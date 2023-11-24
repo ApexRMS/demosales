@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<package name="demosales" displayName="Demo Sales" version="1.0.0" url="https://apexrms.github.io/demosales/">
+<package name="demosales" shortName="Demo Sales" displayName="Demo Sales SyncroSim Base Package" version="1.0.0" url="https://apexrms.github.io/demosales/">
 
 	<dataSheet name="Region" displayName="Regions" dataScope="Project" valueMember="RegionId" displayMember="Name">
 		<column name="Name" dataType="String"/>
@@ -29,10 +29,10 @@
 		<column name="GrossRevenue" displayName="Gross Revenue" dataType="Double" format="N2"/>
 	</dataSheet>
 
-	<dataSheet name="RunControl" displayName="Run Control" isRunControl="True" timestepTitle="Year" showMinIteration="False">
+	<dataSheet name="RunControl" displayName="Forecast Settings" isRunControl="True" timestepTitle="Year" showMinIteration="False">
 	</dataSheet>
 
-	<transformer name="Main" displayName="Demo Sales" className="DemoSales.Primary" classAssembly="DemoSales">
+	<transformer name="Main" displayName="Demo Sales" className="DemoSales.Main" classAssembly="DemoSales">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="AnnualSales" type="Input"/>
 		<dataSheet name="OutputSales" type="Output"/>
