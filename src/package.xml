@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<package name="demosales" shortName="Demo Sales" displayName="Demo Sales SyncroSim Base Package" version="1.0.0" url="https://apexrms.github.io/demosales/">
+<package name="demosales" displayName="Demo Sales" description="Demo Sales SyncroSim Base Package" version="1.0.0" url="https://apexrms.github.io/demosales/">
 
 	<dataSheet name="Region" displayName="Regions" dataScope="Project" valueMember="RegionId" displayMember="Name">
 		<column name="Name" dataType="String"/>
@@ -11,7 +11,7 @@
 		<column name="Description" dataType="String"/>
 	</dataSheet>
 
-	<dataSheet name="AnnualSales" displayName="Annual Sales" dataScope="Scenario">
+	<dataSheet name="AnnualSales" displayName="Annual Sales">
 		<column name="RegionId" displayName="Region" dataType="Integer" validationType="Datasheet" formula1="Region" allowDbNull="False"/>
 		<column name="ItemId" displayName="Item" dataType="Integer" validationType="Datasheet" formula1="Item" allowDbNull="False"/>
 		<column name="ItemPrice" displayName="Price" dataType="Double" validationType="Decimal" validationCondition="GreaterEqual" formula1="0" allowDbNull="False" format="C2"/>
@@ -22,7 +22,7 @@
 	  <validation validationType="LessEqual" columns="CurMinUnitsSold|CurMaxUnitsSold"/>
 	</dataSheet>
 
-	<dataSheet name="OutputSales" displayName="Output Sales" dataScope="Scenario" hasIteration="True" hasTimestep="True">
+	<dataSheet name="OutputSales" displayName="Output Sales" hasIteration="True" hasTimestep="True">
 		<column name="RegionId" displayName="Region" dataType="Integer" validationType="Datasheet" formula1="Region" allowDbNull="False"/>
 		<column name="ItemId" displayName="Item" dataType="Integer" validationType="Datasheet" formula1="Item" allowDbNull="False"/>
 		<column name="UnitsSold" displayName="Units Sold" dataType="Integer"/>
@@ -38,17 +38,17 @@
 		<dataSheet name="OutputSales" type="Output"/>
 	</transformer>
 
-	<layout name="ProjectDatasheets">
+	<layout type="Project">
 		<item name="Region"/>
 		<item name="Item"/>
 	</layout>
 
-	<layout name="ScenarioDatasheets">
+	<layout type="Scenario">
 		<item name="RunControl"/>
 		<item name="AnnualSales"/>
 	</layout>
 
-	<layout name="ChartVariables">
+	<layout type="Chart">
 		<item name="UnitsSold" displayName="Units Sold" dataSheet="OutputSales" column="UnitsSold" filter="RegionId|ItemId"/>
 		<item name="GrossRevenue" displayName="Gross Revenue" dataSheet="OutputSales" column="GrossRevenue" filter="RegionId|ItemId"/>
 	</layout>
