@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<package name="demosales" displayName="Demo Sales" description="Demo Sales SyncroSim Package" version="2.0.0" url="https://apexrms.github.io/demosales/">
+<package name="demosales" displayName="Demo Sales" description="Demo Sales SyncroSim Package" version="2.1.0" minSyncroSimVersion="3.1.0" url="https://apexrms.github.io/demosales/">
 
 	<dataSheet name="Region" displayName="Regions" dataScope="Project" valueMember="RegionId" displayMember="Name">
 		<column name="Name" dataType="String"/>
