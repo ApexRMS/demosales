@@ -5,11 +5,10 @@
 using System;
 using System.Data;
 using SyncroSim.Core;
-using SyncroSim.StochasticTime;
 
 namespace DemoSales
 {
-    class Primary : StochasticTimeTransformer
+    class Main : StochasticTimeTransformer
     {
         private DataTable m_RegionTable;
         private DataTable m_ItemTable;
@@ -27,8 +26,8 @@ namespace DemoSales
             this.m_OutputSalesTable = this.ResultScenario.GetDataSheet("demosales_OutputSales").GetData();
 
             this.m_AnnualSalesTable.PrimaryKey = new DataColumn[] {
-                this.m_AnnualSalesTable.Columns["RegionID"],
-                this.m_AnnualSalesTable.Columns["ItemID"]
+                this.m_AnnualSalesTable.Columns["RegionId"],
+                this.m_AnnualSalesTable.Columns["ItemId"]
             };
         }
 
@@ -41,8 +40,8 @@ namespace DemoSales
                 foreach (DataRow ItemRow in this.m_ItemTable.Rows)
                 {
                     this.CreateSalesForecast(
-                        Convert.ToInt32(RegionRow["RegionID"]),
-                        Convert.ToInt32(ItemRow["ItemID"]),
+                        Convert.ToInt32(RegionRow["RegionId"]),
+                        Convert.ToInt32(ItemRow["ItemId"]),
                         iteration);
                 }
             }
@@ -66,16 +65,17 @@ namespace DemoSales
 
                 for (int Timestep = this.MinimumTimestep; Timestep <= this.MaximumTimestep; Timestep++)
                 {
+                    DataRow dr = this.m_OutputSalesTable.NewRow();
                     int ItemsSold = Convert.ToInt32(this.m_RG.GetUniformDouble(MinItemsSold, MaxItemsSold));
 
-                    this.m_OutputSalesTable.Rows.Add(new object[] {
-                        iteration,
-                        Timestep, 
-                        regionId, 
-                        itemId,
-                        ItemsSold,
-                        ItemsSold * ItemPrice
-                    });
+                    dr["Iteration"] = iteration;
+                    dr["Timestep"] = Timestep; 
+                    dr["RegionId"] = regionId; 
+                    dr["ItemId"] = itemId;
+                    dr["UnitsSold"] = ItemsSold;
+                    dr["GrossRevenue"] = ItemsSold * ItemPrice;
+
+                    this.m_OutputSalesTable.Rows.Add(dr);
 
                     MinItemsSold = Convert.ToInt32(MinItemsSold * (1 + (PercentIncrease / 100)));
                     MaxItemsSold = Convert.ToInt32(MaxItemsSold * (1 + (PercentIncrease / 100)));
